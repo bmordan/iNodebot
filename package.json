@@ -1,0 +1,20 @@
+{
+  "name": "iNodebot",
+  "version": "0.0.1",
+  "description": "Aware Nodebot",
+  "main": "comeToLife.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": "",
+  "keywords": [
+    "nodebot",
+    "johnny-five",
+    "buddhism"
+  ],
+  "author": "bmordan",
+  "license": "BSD",
+  "dependencies": {
+    "johnny-five": "~0.8.34"
+  }
+}
