@@ -16,11 +16,12 @@
   "license": "BSD",
   "dependencies": {
     "johnny-five": "~0.8.34",
-    "socket.io": "^1.2.1"
+    "socket.io": "1.2.0",
+    "socket.io-client": "^1.2.1"
   },
   "devDependencies": {
-    "chai": "^1.10.0",
-    "jasmine-node": "^1.14.5",
-    "mocha": "^2.0.1"
+    "chai": "1.10.0",
+    "jasmine-node": "1.14.5",
+    "mocha": "2.0.1"
   }
 }
