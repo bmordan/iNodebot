@@ -1,13 +1,19 @@
 var five = require('johnny-five');
-var io   = require('socket.io')();
-var Piezo = require('./Piezo');
 var socket = require('socket.io-client')('http://192.168.0.13:3000');
+
 var board = new five.Board();
+var Piezo = require('./Intent/piezo');
+var Motor = require('./Intent/motor');
 
 board.on('ready',function(){
+
   var piezo = new Piezo(five);
+  var motor = new Motor(five);
 
-  piezo.awaken();
+  socket.emit('ready', {msg: 'Ready'});
 
-  socket.emit('ready', {msg: 'I\'m Ready and at your service'})
+  board.repl.inject({
+    m: motor
+  })
+
 })

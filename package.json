@@ -2,8 +2,9 @@
   "name": "iNodebot",
   "version": "0.0.1",
   "description": "Aware Nodebot",
-  "main": "comeToLife.js",
+  "main": "init.js",
   "scripts": {
+    "start": "node init.js",
     "test": "test"
   },
   "repository": "",
