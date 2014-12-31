@@ -5,7 +5,7 @@ var Piezo   = require('./Intent/piezo');
 var Motor   = require('./Intent/motor');
 var Sensor  = require('./Feeling/sensor');
 board.on('ready',function(){
-  var contact = new Contact();
+  var contact = new Contact('http://192.168.0.4:3000');
   var piezo = new Piezo(five);
   var motor = new Motor(five);
   var sensor = new Sensor(five);
