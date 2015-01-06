@@ -17,7 +17,7 @@ board.on('ready',function(){
   var eyes    = new Servo(five); 
   var sensor  = new Sensor(five);
   var feeling = new events.EventEmitter();
-  var mode    = new Mode(feeling);
+  mode = new Mode(feeling);
   
   socket.socket.on('motor', function(data){motor[data.fn]()});
   board.repl.inject({
@@ -26,12 +26,15 @@ board.on('ready',function(){
   board.repl.inject({
     mode: mode
   });
-  console.log(mode.is);
 
   sensor.sharpDistanceStream(feeling);
-  feeling.on('Tracking', function(){
-    console.log('Hello change afoot');
-    piezo.note();
+
+  feeling.on('Follow', function(){
+    eyes.stop();
+  });
+
+  feeling.on('Search', function(){
+    console.log(eyes.position)
   });
 
 });

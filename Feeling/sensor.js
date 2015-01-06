@@ -10,10 +10,16 @@ Sensors.prototype.reflectorArrayStream = function(){
     console.log(data[0],data[1])
   });
 }
-Sensors.prototype.sharpDistanceStream = function(feeling){
+Sensors.prototype.sharpDistanceStream = function(){
   this.sharpDistanceSensor.on('data', function(){
-    if(this.value > 200 && this.value < 250)
-      feeling.emit('startTracking')
+    if(mode.is !== 'Track') return
+    if(this.value > 200 && this.value < 300){
+      if(mode.focus !== 'Follow')
+        mode.setFocus('Follow')
+    }else{
+      if(mode.focus !== 'Search')
+        mode.setFocus('Search')
+    }
   });
 }
 module.exports = Sensors;
