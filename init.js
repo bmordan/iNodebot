@@ -11,7 +11,7 @@ var Mode   = require('./Attention/mode');
 
 board.on('ready',function(){
 
-  var socket  = new Socket('http://192.168.0.4:3000');
+  var socket  = new Socket('http://192.168.50.35:3000');
   var piezo   = new Piezo(five);
   var motor   = new Motor(five);
   var eyes    = new Servo(five); 
@@ -19,22 +19,26 @@ board.on('ready',function(){
   var feeling = new events.EventEmitter();
   mode = new Mode(feeling);
   
-  socket.socket.on('motor', function(data){motor[data.fn]()});
+  socket.connection.on('motor', function(data){
+    console.log(data)
+    motor[data.fn]()
+  });
+  
   board.repl.inject({
     eyes: eyes
   });
-  board.repl.inject({
-    mode: mode
-  });
+  // board.repl.inject({
+  //   mode: mode
+  // });
 
-  sensor.sharpDistanceStream(feeling);
+  // sensor.sharpDistanceStream(feeling);
 
-  feeling.on('Follow', function(){
-    eyes.stop();
-  });
+  // feeling.on('Follow', function(){
+  //   eyes.stop();
+  // });
 
-  feeling.on('Search', function(){
-    console.log(eyes.position)
-  });
+  // feeling.on('Search', function(){
+  //   console.log(eyes.position)
+  // });
 
 });
