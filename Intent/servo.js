@@ -10,4 +10,10 @@ Servo.prototype.right = function(){
 Servo.prototype.center = function(){
   this.sharpDistanceSensor.to(90)
 }
+Servo.prototype.search = function(){
+  this.sharpDistanceSensor.sweep()
+}
+Servo.prototype.stop = function(){
+  this.sharpDistanceSensor.stop()
+}
 module.exports = Servo
