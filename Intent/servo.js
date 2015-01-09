@@ -36,22 +36,6 @@ Servo.prototype.moveTo = function(degree){
 }
 Servo.prototype.stop = function(){
   this.sharpDistanceSensor.stop()
-  this.heading = '|'
   return this.position
-}
-Servo.prototype.search = function(){
-  if(this.position === this.max){this.heading = '-'}
-  if(this.position === this.min){this.heading = '+'}
-  switch(this.heading){
-    case '+':
-      this.nudgeLeft();
-      break;
-    case '-':
-      this.nudgeRight();
-      break;
-    case '|':
-      this.heading = '+';
-      break;
-  }
 }
 module.exports = Servo

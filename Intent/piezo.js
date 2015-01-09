@@ -16,7 +16,10 @@ Piezo.prototype.awaken = function(){
 };
 Piezo.prototype.note = function(){
   this.piezo.play({
-    song: [["F4", 1 / 4]],
+    song: [
+      ["F4", 1 / 4],
+      ["F4", 1 / 4]
+    ],
     tempo: 190
   });
 }

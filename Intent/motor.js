@@ -1,38 +1,36 @@
 function Motor (five){
-  this.L     = new five.Motor([9, 7])
-  this.R     = new five.Motor([10,8])
-  this.speed = 150
+  this.L     = new five.Motor([9, 7]);
+  this.R     = new five.Motor([10,8]);
+  this.speed = 50;
 };
-Motor.prototype.halt = function(){
-  this.L.stop()
-  this.R.stop()
+Motor.prototype.forward = function(){
+  this.L.forward(this.speed);
+  this.R.forward(this.speed);
 };
-Motor.prototype.both = function(){
-  this.halt()
-  this.L.start(this.speed)
-  this.R.start(this.speed)
+Motor.prototype.reverse = function(){
+  this.L.reverse(this.speed);
+  this.R.reverse(this.speed);
 };
-Motor.prototype.bothReverse = function(){
-  this.halt()
-  this.L.reverse(this.speed)
-  this.R.reverse(this.speed)
+Motor.prototype.stop = function(){
+  this.L.stop();
+  this.R.stop();
 };
 Motor.prototype.leftForward = function(){
-  this.L.forward(this.speed)
-};
-Motor.prototype.rightForward = function(){
-  this.R.forward(this.speed)
+  this.L.forward(this.speed);
 };
 Motor.prototype.leftReverse = function(){
-  this.L.reverse(this.speed)
-};
-Motor.prototype.rightReverse = function(){
-  this.R.reverse(this.speed)
+  this.L.reverse(this.speed);
 };
 Motor.prototype.leftStop = function(){
-  this.L.stop()
+  this.L.stop();
+};
+Motor.prototype.rightForward = function(){
+  this.R.forward(this.speed);
+};
+Motor.prototype.rightReverse = function(){
+  this.R.reverse(this.speed);
 };
 Motor.prototype.rightStop = function(){
-  this.R.stop()
+  this.R.stop();
 };
 module.exports = Motor;
